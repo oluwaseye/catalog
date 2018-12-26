@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-grey">Login</h3>
+                    <p class="subtitle has-text-grey">Please login to proceed.</p>
+                    <div class="box">
+                    
+                        <form>
+                                    <div id="signinBtn">
+                                        <span class="g-signin"
+                                            data-scope="openid email"
+                                            data-clientid="485252933258-1pe0mo2ca9j271osp07eupcahfi06tps.apps.googleusercontent.com"
+                                            data-redirecturi="postmessage"
+                                            data-accesstype="offline"
+                                            data-cookiepolicy="single_host_origin"
+                                            data-callback="signInCallback"
+                                            data-approvalprompt="force"
+                                            data-width="300" data-height="200" data-longtitle="true">
+                                        </span>
+                                    </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+{% include 'navigation.html' %}
+{% block container %}
+<div class="container has-text-centered">
+                    <div class="column is-6 is-offset-3 intro">
+                        <h1 class="title">Our Offerings</h1>
+                        <h2 class="subtitle">
+                            Click on the categories to display their items. To add, edit and delete please <a href="{{url_for('showLogin')}}">Login</a>
+                        </h2>
+                            <div>
+                                {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                                <p>{{ message }}</p>
+                                {% endfor %} {% endif %} {% endwith %}
+                            </div>
+                        <a class="button is-medium is-primary" href="{{url_for('newCategory')}}" >Create New Category</a>
+                    </div>
+</div>
+<div class="container">
+        <div class="section">        
+            <div class="row columns is-multiline">
+            {% for i in categories %}
+                <div class="column is-4">
+                    <div class="card">
+                        <a href="{{url_for('showItems', category_id=i.id)}}">
+                        <div class="card-image">
+                            <figure class="image">
+                                <img  alt="{{i.name}}" src="{{i.picture}}">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h2><a href="{{url_for('showItems', category_id=i.id)}}">{{i.name}}</a></h2>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+
+           
+        </div>
+    </div>
+{% endblock %}

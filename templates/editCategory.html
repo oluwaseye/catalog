@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<section class=" is-default is-bold">
+<div class="hero-body">
+            <div class="container">
+                    <div class="column is-12 intro">
+                        <h1 class="title">
+                            Edit Category {{category.name}}
+                        </h1>
+                    </div>
+
+        <form action="{{url_for('editCategory', category_id=category.id)}}" method="post">
+                    <div class="field">
+                      <label class="label">Category Name:</label>
+                      <div class="control">
+                        <input class="input" type="text" name="name" value="{{category.name}}" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Category Picture URL:</label>
+                      <div class="control">
+                        <input class="input" type="text" name="picture" value="{{category.picture}}" required>
+                      </div>
+                    </div>
+
+                   
+
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button class="button is-link" type="submit">Update</button>
+                      </div>
+                    </div>
+                                    </form>
+                                </div>
+                    </div>
+</section>
+{% endblock %}

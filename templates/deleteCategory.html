@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<section class=" is-default is-bold">
+<div class="hero-body">
+            <div class="container">
+                    <div class="column is-12 intro">
+                        <h1 class="title">
+                            Delete Category {{category.name}}
+                        </h1>
+                       <p>Do you want to delete {{category.name}} category?</p>
+                    </div>
+
+            <form action="{{url_for('deleteCategory', category_id=category.id)}}" method="post">
+                    
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button class="button is-danger" type="submit">Delete</button>
+                      </div>
+                    </div>
+            </form>
+                                </div>
+                    </div>
+</section>
+{% endblock %}

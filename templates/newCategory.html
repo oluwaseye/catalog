@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<section class=" is-default is-bold">
+<div class="hero-body">
+            <div class="container">
+                    <div class="column is-12 intro">
+                        <h1 class="title">
+                            Create New Category
+                        </h1>
+                    </div>
+                <form action="{{url_for('newCategory')}}" method=post>
+                            <div class="field">
+                              <label class="label">Category Name:</label>
+                              <div class="control">
+                                <input class="input" type="text" name="name" required>
+                              </div>
+                            </div>
+
+                            <div class="field">
+                              <label class="label">Category Image URL:</label>
+                              <div class="control">
+                                <input class="input" type="text" name="picture" required>
+                              </div>
+                            </div>
+
+                            <div class="field is-grouped">
+                              <div class="control">
+                                <button class="button is-link" type="submit">Create</button>
+                              </div>
+                            </div>
+                </form>
+              </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+<nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a href="{{url_for('showCategories')}}" class="navbar-item">
+                           <strong class="mt-1">The Car Talog</strong>
+                       </a>
+                        <span class="navbar-burger burger" data-target="navbarMenu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        </span>
+                    </div>
+                    <div id="navbarMenu" class="navbar-menu">
+                        <div class="navbar-end">
+
+                            {% for c in categories %}
+                                <a class="navbar-item" href="{{url_for('showItems', category_id=c.id)}}">{{c.name}}</a>
+                            {% endfor %}
+                            
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                {% if 'username' not in session %}
+                                    <a class="navbar-link" href="{{url_for('showLogin')}}">Login</a>
+                                {% else %}
+                                    <a class="navbar-link" href="{{url_for('google_signout')}}">LogOut</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</nav>
