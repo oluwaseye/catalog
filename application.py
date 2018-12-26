@@ -130,9 +130,6 @@ def google_signin():
     login_session['user_id'] = user_id
 
     output = ''
-    output += '<h1>Welcome, '
-    output += login_session['username']
-    output += '!</h1>'
     output += '<img src="'
     output += login_session['picture']
     output += ' " style = "width: 300px; height: 300px;"'
