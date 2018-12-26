@@ -26,15 +26,16 @@ body{
 input {
   font-weight: 300;
 }
-/* p {
-  font-weight: 700;
+.navbar-brand .brand{
+      font-size: 24px;
 }
-p.subtitle {
-  padding-top: 1rem;
-}*/
 .intro{
       padding: 80px 0px;
+}
+#gSigninForm{
+  margin: 0;
+  padding: 0;
 } 
 #signinBtn{
-  background: #fff url('../img/btn_google_signin.png') center cover no-repeat;
+      padding-top: 10px;
 }
