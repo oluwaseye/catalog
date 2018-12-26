@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<section class="hero is-fullheight is-default is-bold">
+<div class="hero-body">
+            <div class="container has-text-centered">
+                
+                <div class="columns is-vcentered">
+                    <div class="column is-5">
+                        <figure class="image is-4by3">
+                            <img src="{{item.image}}" alt="{{item.name}}">
+                        </figure>
+                    </div>
+                    <div class="column is-6 is-offset-1">
+                        <h1 class="title is-2">{{item.name}}</h1>
+                        <h4 class="subtitle is-4">${{item.price}}</h4>
+                        <h4 class="subtitle is-4">{{item.description}}</h4>
+                        <h4 class="subtitle is-4">{{category.name}}</h4>
+                        <br>
+                            <div class="buttons has-addons is-centered">
+                              <a href="{{url_for('editItem', category_id=category.id, item_name=item.name)}}" class="button is-success">Edit Item</a>
+                              <a href="{{url_for('editItem', category_id=category.id, item_name=item.name)}}" class="button is-danger ">Delete Item</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+</div>
+</section>
+{% endblock %}

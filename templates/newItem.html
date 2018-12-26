@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<section class=" is-default is-bold">
+<div class="hero-body">
+            <div class="container">
+                    <div class="column is-12 intro">
+                        <h1 class="title">
+                            Create new Item
+                        </h1>
+                       
+                    </div>
+
+        <form action="{{url_for('createNewItem', category_name=category.name)}}" method="post">
+                    <div class="field">
+                      <label class="label">Name:</label>
+                      <div class="control">
+                        <input class="input" type="text" name="name" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Item Image URL:</label>
+                      <div class="control">
+                        <input class="input" type="text" name="image" required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Item Price:</label>
+                      <div class="control">
+                        <input class="input" type="text"  name="price"  required>
+                      </div>
+                    </div>
+
+                    <div class="field">
+                      <label class="label">Item Description</label>
+                      <div class="control">
+                        <textarea class="textarea" type="text" name="description" rows="3" required></textarea> 
+                      </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                      <div class="control">
+                        <button class="button is-link" type="submit">Submit</button>
+                      </div>
+                    </div>
+                                    </form>
+                                </div>
+                    </div>
+</section>
+{% endblock %}

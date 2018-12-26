@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<div class="container has-text-centered">
+                    <div class="column is-6 is-offset-3 intro">
+                        
+                        <h1 class="title">Items in the Cake Category {{category.name}}</h1>
+                        <h2 class="subtitle">
+                            Click on the items to display their details. <a href="{{url_for('showLogin')}}">login</a>
+                        </h2>
+                        <a class="button is-medium is-primary" href="{{url_for('createNewItem', category_name=category.name)}}" >Create New Category</a>
+                    </div>
+</div>
+<div class="container">
+        <div class="section">        
+            <div class="row columns is-multiline">
+            {% for i in items %}               
+                <div class="column is-4">
+                    <div class="card large">
+                        <a href="{{url_for('showItemInfo', item_name=i.name, category_name=category.name)}}">
+                            <div class="card-image">
+                                <figure class="image">
+                                    <img alt="{{i.name}}" src="{{i.image}}">
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="content">
+                                    <h2>{{i.name}}</h2>
+                                    Creator: {{creator.name}}
+                                </div>
+                            </div>
+                        </a>  
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

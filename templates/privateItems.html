@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% include 'navigation.html' %}
+{% block container %}
+<div class="container has-text-centered">
+                    <div class="column is-6 is-offset-3 intro">
+                        <h1 class="title">
+                            Items in Category {{category.name}}
+                        </h1>
+                        <h2 class="subtitle">
+                            Click on the items to display their details. You can add, edit and delete items or <a href="{{url_for('google_signout')}}">logout</a>.
+                        </h2>
+                        <a class="button is-medium is-primary" href="{{url_for('createNewItem', category_name=category.name)}}">Create New Item</a>
+                    </div>
+</div>
+<div class="container">
+        <div class="section">        
+            <div class="row columns is-multiline">
+                {% for i in items %}
+                <div class="column is-4">
+                    <div class="card ">
+                         <a href="{{url_for('showItemInfo', item_name=i.name, category_name=category.name)}}">
+                        <div class="card-image">
+                            <figure class="image">
+                                <img alt="{{i.name}}" src="{{i.image}}">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="content">
+                                <h2>{{i.name}}</h2>
+                                <p>Creator: {{creator.name}}</p>
+                            <div class="buttons has-addons">
+                              <a class="button is-success"  href="{{url_for('editItem', category_id=category.id, item_name=i.name)}}">Edit Item</a>
+                              <a class="button is-danger"  href="{{url_for('deleteItem', category_id=category.id, item_name=i.name)}}">Delete Item</a>
+                            </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
