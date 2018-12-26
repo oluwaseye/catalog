@@ -3,9 +3,10 @@
 {% block container %}
 <div class="container has-text-centered">
                     <div class="column is-6 is-offset-3 intro">
-                        <h1 class="title">Our Offerings</h1>
+                        <h1 class="title"> Our Car Talogs</h1>
                         <h2 class="subtitle">
                             Click on the categories to display their items. To add, edit and delete please <a href="{{url_for('showLogin')}}">Login</a>
+                            
                         </h2>
                             <div>
                                 {% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
