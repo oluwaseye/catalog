@@ -18,7 +18,8 @@ import requests
 # ----------------------
 # Database Setup
 # ----------------------
-engine = create_engine('sqlite:///itemcatalog.db', connect_args={'check_same_thread': False}, echo=True)
+engine = create_engine('sqlite:///itemcatalog.db',
+                       connect_args={'check_same_thread': False}, echo=True)
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
@@ -36,21 +37,22 @@ CLIENT_ID = json.loads(
 
 
 # ----------
-# User Login 
+# User Login
 # ----------
 
 @app.route('/login')
 def showLogin():
     categories = session.query(Category).all()
     # State token to prevent forgery
-    login_state = ''.join(random.choice(string.ascii_uppercase + string.digits)
-                    for x in range(32))
-    login_session['state'] = login_state
-    return render_template('login.html', categories=categories, STATE=login_state)
+    login_ = ''.join(random.choice(string.ascii_uppercase + string.digits)
+                     for x in range(32))
+    login_session['state'] = login_
+    return render_template('login.html', categories=categories, STATE=login_)
 
 # ----------------
-# ** Google Signin  
+# ** Google Signin
 # ----------------
+
 
 @app.route('/google_signin', methods=['POST'])
 def google_signin():

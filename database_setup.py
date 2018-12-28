@@ -7,6 +7,8 @@ from sqlalchemy.orm import sessionmaker
 Base = declarative_base()
 
 # Create a class for Users
+
+
 class User(Base):
     __tablename__ = 'user'
 
@@ -35,6 +37,8 @@ class Category(Base):
         }
 
 # create an item class for item table
+
+
 class Items(Base):
     __tablename__ = 'items'
 
@@ -60,6 +64,8 @@ class Items(Base):
             'category': self.category.name,
         }
 
-engine = create_engine('sqlite:///itemcatalog.db', connect_args={'check_same_thread': False}, echo=True)
+
+engine = create_engine('sqlite:///itemcatalog.db',
+                       connect_args={'check_same_thread': False}, echo=True)
 
 Base.metadata.create_all(engine)
